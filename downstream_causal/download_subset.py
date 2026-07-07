@@ -1,5 +1,8 @@
-"""Download a stratified subset of AnandMayank/QueST-PartNetMobility-SAPIEN
-(frames + affordance NPZs + metadata only; skips video.mp4) for E1/E2.
+"""Download a stratified subset of the QueST-PartNetMobility-SAPIEN benchmark
+dataset (frames + affordance NPZs + metadata only; skips video.mp4) for E1/E2.
+
+Set QUEST_DATASET_REPO to the Hugging Face dataset repo id (see the top-level
+README's Dataset section).
 
 Usage:
     python -m downstream_causal.download_subset --out ~/data/quest_partnet_subset \
@@ -9,13 +12,14 @@ Usage:
 from __future__ import annotations
 
 import argparse
+import os
 import re
 from collections import defaultdict
 from pathlib import Path
 
 from huggingface_hub import hf_hub_download, list_repo_files
 
-REPO = "AnandMayank/QueST-PartNetMobility-SAPIEN"
+REPO = os.environ.get("QUEST_DATASET_REPO", "<hf-dataset-repo-id>")
 
 
 def main():

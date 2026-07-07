@@ -105,13 +105,14 @@ Each subfolder has its own README with file-by-file detail.
 </p>
 
 The synthetic articulated benchmark (generated with `dataset_prep/`) is
-released on Hugging Face:
-
-**[huggingface.co/datasets/AnandMayank/QueST-PartNetMobility-SAPIEN](https://huggingface.co/datasets/AnandMayank/QueST-PartNetMobility-SAPIEN)**
+released as a Hugging Face dataset. The link is withheld here during
+anonymous review; set `QUEST_DATASET_REPO` to the dataset's repo id once
+you have it (see `downstream_causal/download_subset.py`):
 
 ```python
+import os
 from huggingface_hub import snapshot_download
-snapshot_download("AnandMayank/QueST-PartNetMobility-SAPIEN", repo_type="dataset")
+snapshot_download(os.environ["QUEST_DATASET_REPO"], repo_type="dataset")
 ```
 
 The real-world egocentric component of EgoTrajFlow is built from Ego4D and
