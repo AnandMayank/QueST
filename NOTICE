@@ -1,0 +1,21 @@
+This repository builds on and credits the following third-party projects.
+
+- `quest/` and `benchmark/` are built on top of `facebookresearch/co-tracker`
+  (https://github.com/facebookresearch/co-tracker), licensed CC BY-NC 4.0.
+  Base CoTracker3 modules these files depend on (cotracker3_offline.py,
+  model_utils.py, blocks.py, embeddings.py, the base cotracker.py) are
+  upstream code and are not included in this repo; see `quest/README.md`.
+
+- `interactive_repair/nninteractive_corrector.py` integrates with
+  `MIC-DKFZ/nnInteractive` (https://github.com/MIC-DKFZ/nnInteractive),
+  licensed CC BY-NC-SA 4.0. nnInteractive itself and its trained weights
+  are not vendored in this repo; obtain them separately under their license.
+
+- `dataset_prep/` generates synthetic data from PartNet-Mobility
+  (Mo et al., CVPR 2019) rendered in SAPIEN (Xiang et al., CVPR 2020).
+  Neither the PartNet-Mobility mesh/URDF assets nor SAPIEN itself are
+  redistributed here; obtain PartNet-Mobility under its own license.
+
+- Evaluation baselines referenced in `downstream_causal/` (CoTracker2/3,
+  AllTracker, DenseTrack2D, BootsTAPIR, TAPIR, V-JEPA2, DINOv2) are used via
+  their official pretrained checkpoints, not redistributed in this repo.

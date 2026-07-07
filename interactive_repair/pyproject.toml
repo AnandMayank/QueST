@@ -1,0 +1,50 @@
+[build-system]
+requires = []
+build-backend = "build_backend"
+backend-path = ["."]
+
+[project]
+name = "semaphore-tracker"
+version = "0.1.0"
+description = "Human-in-the-loop point tracking repair platform"
+readme = "README.md"
+requires-python = ">=3.10"
+
+dependencies = [
+    "numpy>=1.24",
+    "opencv-python>=4.8",
+]
+
+[project.optional-dependencies]
+napari = [
+    "napari[all]>=0.5",
+    "magicgui>=0.8",
+]
+cotracker = [
+    "torch>=2.1",
+    # co-tracker installed from git — see README
+]
+tapir = [
+    "torch>=2.1",
+    "tapir-pytorch>=0.1",
+]
+dev = [
+    "pytest>=7",
+    "pytest-cov",
+    "black",
+    "ruff",
+]
+
+[project.entry-points."napari.manifest"]
+semaphore = "semaphore:napari.yaml"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["semaphore*"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

@@ -1,0 +1,32 @@
+# ============================================
+# Stretch Robot - Intel RealSense D435i Camera
+# ============================================
+# The Stretch robot uses a D435i mounted on the head
+# at approximately 1.1m height (varies with tilt)
+# 
+# D435i RGB Sensor Specs (640x480 mode):
+#   - Horizontal FOV: 69°
+#   - Vertical FOV: 42°
+#   - Depth range: 0.1m - 10m (optimal 0.3m - 3m)
+
+width: 640
+height: 480
+
+# Intel RealSense D435i intrinsics (typical at 640x480)
+# These are approximate values - actual values vary per unit
+fx: 615.0
+fy: 615.0
+cx: 320.0
+cy: 240.0
+
+# D435i depth range
+near: 0.1
+far: 10.0
+
+# Stretch robot head camera height range:
+# - Minimum (looking down): ~1.0m
+# - Maximum (looking up): ~1.4m  
+# - Typical manipulation height: ~1.1m
+# Position/rotation are set dynamically in code
+position: [1.0, 0.0, 1.1]
+rotation: [1.0, 0.0, 0.0, 0.0]
